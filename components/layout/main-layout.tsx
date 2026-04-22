@@ -11,9 +11,8 @@ const calistoga = Calistoga({
 });
 
 const menuItems: MenuItemProps[] = [
-    { label: "Home", href: "/" },
+    { label: "readme", href: "/" },
     { label: "Work", href: "/work" },
-    { label: "Blog", href: "/blog" },
 ];
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {

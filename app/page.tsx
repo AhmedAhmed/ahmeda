@@ -31,7 +31,7 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col flex-1 gap-5">
                     <div className="flex flex-col flex-1 gap-5">
-                        <SectionTitle title="About Me" />
+                        <SectionTitle title="README" />
                         <div className="flex flex-col w-full gap-2 text-sm">
                             <p className="indent-5">
                                 👋 Hey, I'm Ahmed. I build fast, accessible web and mobile experiences.

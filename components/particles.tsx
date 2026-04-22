@@ -3,22 +3,12 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
 
-interface Particle {
-  x: number
-  y: number
-  size: number
-  baseX: number
-  baseY: number
-  density: number
-  color: string
-}
-
 export function Particles() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const particlesRef = useRef<Particle[]>([])
   const mouseRef = useRef({ x: 0, y: 0 })
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number>(null)
   const { theme, systemTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
