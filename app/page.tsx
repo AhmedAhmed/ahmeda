@@ -2,17 +2,9 @@ import ExperienceItem from "@/components/resume/experience-item";
 import { ExperienceItems } from "@/components/resume/constants";
 import { Geist_Mono } from "next/font/google";
 import { MapPinIcon } from "lucide-react";
+import TitleBorder from "@/components/ui/title-border";
 
 const geist_mono = Geist_Mono({ subsets: ["latin"] });
-
-const SectionTitle = ({ title }: { title: string }) => {
-    return (
-        <div className="flex w-full items-center gap-2">
-            <h1 className={`${geist_mono.className} text-sm font-bold uppercase`}>{title}</h1>
-            <span className="flex-1 h-px bg-foreground/15"></span>
-        </div>
-    );
-}
 
 export default function Home() {
     return (
@@ -31,9 +23,9 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col flex-1 gap-5">
                     <div className="flex flex-col flex-1 gap-5">
-                        <SectionTitle title="README" />
+                        <TitleBorder title="README" className={geist_mono.className} />
                         <div className="flex flex-col w-full gap-2 text-sm">
-                            <p className="indent-5">
+                            <p>
                                 👋 Hey, I'm Ahmed. I build fast, accessible web and mobile experiences.
                                 I'm a frontend software engineer with 8+ years of experience designing, developing, and maintaining
                                 large-scale Single Page Applications and client-facing portals. At Prizmsol, I've led the design and
@@ -52,7 +44,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="flex flex-col flex-1 gap-5">
-                        <SectionTitle title="Experience" />
+                        <TitleBorder title="Experience" className={geist_mono.className} />
                         <div className="flex flex-col w-full gap-10">
                             {ExperienceItems.map((item, index) => (
                                 <ExperienceItem key={index} {...item} />
