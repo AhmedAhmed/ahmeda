@@ -9,14 +9,14 @@ const geist_mono = Geist_Mono({ subsets: ["latin"] });
 export default function Home() {
     return (
         <div className="flex flex-1 w-full flex-col items-center p-5">
-            <div className="flex w-full max-w-7xl gap-5 px-6">
-                <div className="flex flex-col self-start sticky top-[93px] bg-neutral-200 dark:bg-neutral-900 rounded-full w-[150px] h-[150px]">
+            <div className="flex flex-col lg:flex-row w-full max-w-7xl gap-5 px-6">
+                <div className="flex flex-col self-center lg:self-start lg:sticky lg:top-[93px] bg-neutral-200 dark:bg-neutral-900 rounded-full w-[150px] h-[150px]">
                     <img
                         src="https://urjgzvscdikmyccb.public.blob.vercel-storage.com/ahmed-mini-3270803f-3c79-4ff4-ad00-69cdeea6a6a5.png"
                         alt="Profile Picture"
                         className="rounded-full"
                     />
-                    <div className="flex text-sm text-amber-600 dark:text-neutral-400 items-center gap-2 mt-5">
+                    <div className="hidden lg:flex text-sm text-amber-600 dark:text-neutral-400 items-center gap-2 mt-5">
                         <MapPinIcon className="h-4 w-4" />
                         <span className="text-sm">Toronto, Ontario</span>
                     </div>
