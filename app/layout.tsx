@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import MainLayout from "@/components/layout/main-layout";
 import Providers from "@/providers";
 import { Geist } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,6 +29,7 @@ export default function RootLayout({
             <body className="min-h-full flex flex-col selection:bg-blue-800 selection:text-white">
                 <Providers>
                     <MainLayout>
+                        <Analytics />
                         {children}
                     </MainLayout>
                 </Providers>

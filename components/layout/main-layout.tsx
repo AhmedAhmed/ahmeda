@@ -3,7 +3,6 @@ import Menu, { MenuItemProps } from "../navigation/menu";
 import { ModeToggle } from "../ui/mode-toggle";
 import GridOutlines from "../grid-outlines";
 import Link from "next/link";
-import { LeftSheet } from "../navigation/left-sheet";
 
 const calistoga = Calistoga({
     subsets: ["latin"],
