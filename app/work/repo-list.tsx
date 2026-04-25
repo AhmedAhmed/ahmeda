@@ -6,12 +6,35 @@ const geist_mono = Geist_Mono({ subsets: ["latin"] });
 
 export default async function RepoList() {
     const getRepos = async () => {
-        const response = await fetch("https://api.github.com/users/ahmedahmed/repos");
-        const data = await response.json();
-        return data;
+        try {
+            const response = await fetch("https://api.github.com/users/ahmedahmed/repos");
+            const data = await response.json();
+            if (data.message.includes("API rate limit exceeded")) {
+                return {
+                    status: 429,
+                    message: "API rate limit exceeded"
+                };
+            }
+            return data;
+        } catch (error) {
+            console.log(error);
+            return [];
+        }
     }
 
     const repos = await getRepos();
+
+    if (repos.status === 429) {
+        return <div className="flex flex-col items-center justify-center gap-5 text-center">
+            <div className="flex flex-col items-center justify-center gap-5 text-center">
+                <div className="flex flex-col items-center justify-center gap-5 text-center">
+                    <p className="text-md">Something went wrong. Please try again later.</p>
+                    <p>In the meantime, you can check out my projects on <a href="https://github.com/ahmedahmed" target="_blank" className="text-blue-600 dark:text-blue-500 font-bold hover:underline">GitHub</a>.</p>
+                </div>
+            </div>
+        </div>
+    }
+
     const getLangs = async (repo: any) => {
         const response = await fetch(`https://api.github.com/repos/ahmedahmed/${repo}/languages`);
         const data = await response.json();
@@ -50,7 +73,8 @@ export default async function RepoList() {
                             </div>
                         </div>
                     </Link>
-                )})}
+                )
+            })}
         </div>
     );
 }
