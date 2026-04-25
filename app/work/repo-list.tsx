@@ -9,7 +9,7 @@ export default async function RepoList() {
         try {
             const response = await fetch("https://api.github.com/users/ahmedahmed/repos");
             const data = await response.json();
-            if (data.message.includes("API rate limit exceeded")) {
+            if (data?.message?.includes("API rate limit exceeded")) {
                 return {
                     status: 429,
                     message: "API rate limit exceeded"
