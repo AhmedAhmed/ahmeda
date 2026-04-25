@@ -1,3 +1,4 @@
+import { Badge } from "@/components/ui/badge";
 import { ArrowUpRightIcon } from "lucide-react";
 import { Geist_Mono } from "next/font/google";
 import Link from "next/link";
@@ -63,7 +64,10 @@ export default async function RepoList() {
                                     <span className="text-xs text-neutral-500 group-hover/card:text-emerald-700 dark:group-hover/card:text-emerald-300">{(index + 1).toString().padStart(2, "0")}</span>
                                     <ArrowUpRightIcon className="h-4 w-4 text-neutral-500 hidden group-hover/card:flex group-hover/card:text-emerald-700 dark:group-hover/card:text-emerald-300" />
                                 </div>
-                                <h2 className="text-md group-hover/card:text-emerald-700 dark:group-hover/card:text-emerald-300 font-bold uppercase">{repo.name}</h2>
+                                <div className="flex items-center gap-2.5">
+                                    <h2 className="text-md group-hover/card:text-emerald-700 dark:group-hover/card:text-emerald-300 font-bold uppercase">{repo.name}</h2>
+                                    {repo.name == "ahmeda" && <Badge>This Site</Badge>}
+                                </div>
                                 <p className="text-sm text-neutral-500 group-hover/card:text-emerald-700 dark:group-hover/card:text-emerald-300 line-clamp-4 overflow-hidden text-ellipsis">
                                     {repo.description}
                                 </p>
