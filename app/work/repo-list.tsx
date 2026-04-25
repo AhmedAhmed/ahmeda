@@ -8,7 +8,9 @@ const geist_mono = Geist_Mono({ subsets: ["latin"] });
 export default async function RepoList() {
     const getRepos = async () => {
         try {
-            const response = await fetch("https://api.github.com/users/ahmedahmed/repos");
+            const response = await fetch("https://api.github.com/users/ahmedahmed/repos", {
+                next: { revalidate: 3600 }
+            });
             const data = await response.json();
             if (data?.message?.includes("API rate limit exceeded")) {
                 return {
